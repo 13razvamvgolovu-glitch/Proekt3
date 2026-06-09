@@ -1,0 +1,60 @@
+﻿<Application x:Class="Proekt3.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Proekt3"
+             StartupUri="LoginWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            
+            <!-- Основной цвет синий -->
+            <SolidColorBrush x:Key="PrimaryColor" Color="#2C7DA0"/>
+            <!-- Второй цвет голубой -->
+            <SolidColorBrush x:Key="SecondaryColor" Color="#61A5C2"/>
+            <!-- Акцентный цвет -->
+            <SolidColorBrush x:Key="AccentColor" Color="#89C2D9"/>
+            <!-- Цвет ошибки - красный -->
+            <SolidColorBrush x:Key="ErrorColor" Color="#E63946"/>
+            <!-- Цвет успеха - зеленый -->
+            <SolidColorBrush x:Key="SuccessColor" Color="#2A9D8F"/>
+            
+
+            <!-- стиль для всех кнопок приложения -->
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <!-- Фон кнопки -->
+                <Setter Property="Background" Value="{StaticResource PrimaryColor}"/>
+                <!-- Цвет текста -->
+                <Setter Property="Foreground" Value="White"/>
+                <!-- Внутренние отступы -->
+                <Setter Property="Padding" Value="8,4"/>
+                <!-- Внешние отступы -->
+                <Setter Property="Margin" Value="3"/>
+                <!-- Минимальная ширина -->
+                <Setter Property="MinWidth" Value="70"/>
+                <!-- Высота кнопки -->
+                <Setter Property="Height" Value="28"/>
+                <!-- Курсор-активен при наведении -->
+                <Setter Property="Cursor" Value="Hand"/>
+                <!-- Полужирный шрифт -->
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Style.Triggers>
+                    <!-- Изменение цвета при наведении мыши -->
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="{StaticResource SecondaryColor}"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <!-- Стиль для полей ввода с ошибками валидации -->
+            <Style x:Key="ValidationErrorStyle" TargetType="TextBox">
+                <Style.Triggers>
+                    <!-- Если есть ошибка валидации - красная рамка -->
+                    <Trigger Property="Validation.HasError" Value="True">
+                        <Setter Property="BorderBrush" Value="{StaticResource ErrorColor}"/>
+                        <Setter Property="BorderThickness" Value="2"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
