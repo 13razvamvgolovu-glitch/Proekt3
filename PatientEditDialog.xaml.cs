@@ -16,17 +16,15 @@ using System.Windows.Shapes;
 
 namespace Proekt3
 {
-    /// <summary>
-    /// Логика взаимодействия для PatientEditDialog.xaml
-    /// </summary>
+    // Логика взаимодействия для PatientEditDialog.xaml
     public partial class PatientEditDialog : Window
     {
         private Patient editingPatient;  // Редактируемый пациент (для режима редактирования)
         private bool isEditMode = false; // true - редактирование, false - добавление
-        public PatientEditDialog()
+        public PatientEditDialog() 
         {
-            InitializeComponent();
-            dpBirthDate.SelectedDate = DateTime.Today.AddYears(-30);
+            InitializeComponent(); // конструктор
+            dpBirthDate.SelectedDate = DateTime.Today.AddYears(-30); // изначальная дата рождения
         }
         public PatientEditDialog(Patient patient)
         {
@@ -35,22 +33,14 @@ namespace Proekt3
             editingPatient = patient;
             LoadPatientData(); // Загружаем данные в поля
         }
-
-        /// <summary>
-        /// Загрузка данных пациента в поля формы
-        /// </summary>
-        private void LoadPatientData()
+        private void LoadPatientData() // Загрузка данных пациента в поля формы
         {
             txtFullName.Text = editingPatient.FullName;
             dpBirthDate.SelectedDate = editingPatient.BirthDate;
             txtPhone.Text = editingPatient.Phone;
             txtSnils.Text = editingPatient.Snils;
         }
-
-        /// <summary>
-        /// Получение нового пациента из данных формы
-        /// </summary>
-        public Patient GetPatient()
+        public Patient GetPatient() // Получение нового пациента из данных формы
         {
             return new Patient
             {
@@ -60,22 +50,14 @@ namespace Proekt3
                 Snils = txtSnils.Text.Trim()
             };
         }
-
-        /// <summary>
-        /// Обновление существующего пациента данными из формы
-        /// </summary>
-        public void UpdatePatient(Patient patient)
+        public void UpdatePatient(Patient patient) // Обновление существующего пациента данными из формы
         {
             patient.FullName = txtFullName.Text.Trim();
             patient.BirthDate = dpBirthDate.SelectedDate ?? DateTime.Today;
             patient.Phone = txtPhone.Text.Trim();
             patient.Snils = txtSnils.Text.Trim();
         }
-
-        /// <summary>
-        /// Валидация всех полей формы
-        /// </summary>
-        private void ValidateForm(object sender, RoutedEventArgs e)
+        private void ValidateForm(object sender, RoutedEventArgs e) // Валидация всех полей формы
         {
             string error = "";
             bool isValid = true;
@@ -117,13 +99,13 @@ namespace Proekt3
             btnSave.IsEnabled = isValid;
         }
 
-        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        private void BtnSave_Click(object sender, RoutedEventArgs e) // обработка кнопки сохранить
         {
             DialogResult = true;
             Close();
         }
 
-        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        private void BtnCancel_Click(object sender, RoutedEventArgs e) // обработка кнопки отмена
         {
             DialogResult = false;
             Close();

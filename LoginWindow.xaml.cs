@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace Proekt3
 {
-    /// <summary>
-    /// Логика взаимодействия для LoginWindow.xaml
-    /// </summary>
     public partial class LoginWindow : Window
     {
         public LoginWindow() // конструктор

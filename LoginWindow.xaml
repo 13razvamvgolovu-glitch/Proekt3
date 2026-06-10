@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proekt3"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="450" Width="800"
+        Title="LoginWindow" Height="400" Width="350"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
     <Grid Margin="20">
@@ -43,7 +43,7 @@
                     Width="100" Click="BtnExit_Click"/>
         </StackPanel>
 
-        <!-- сообщения об ошибке -->
+        <!-- Сообщения об ошибке -->
         <TextBlock x:Name="txtError" Grid.Row="4" Text="" Foreground="{StaticResource ErrorColor}"
                    HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="12"/>
     </Grid>

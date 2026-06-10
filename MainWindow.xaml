@@ -10,16 +10,15 @@
     <Grid Margin="10">
         <!-- TabControl для переключения между разделами -->
         <TabControl>
-
-            <!-- ========== ВКЛАДКА "ПАЦИЕНТЫ" ========== -->
-            <TabItem Header="Пациенты">
+            <!-- ========== Вкладка "Пациенты" ========== -->
+            <TabItem Header="Пациенты" Width="100">
                 <Grid>
                     <!-- Разметка: панель кнопок + таблица -->
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
                         <!-- Панель кнопок -->
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
                         <!-- Таблица -->
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
                     <!-- Панель кнопок управления пациентами -->
@@ -51,15 +50,15 @@
                 </Grid>
             </TabItem>
 
-            <!-- ========== ВКЛАДКА "УСЛУГИ" ========== -->
-            <TabItem Header="Услуги">
+            <!-- ========== Вкладка "Услуги" ========== -->
+            <TabItem Header="Услуги" Width="100">
                 <Grid>
                     <!-- Разметка: панель кнопок + таблица -->
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
                         <!-- Панель кнопок -->
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
                         <!-- Таблица -->
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
                     <!-- Панель кнопок управления услугами -->
@@ -81,7 +80,7 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
                             <DataGridTextColumn Header="Название услуги" Binding="{Binding Name}" Width="250"/>
-                            <DataGridTextColumn Header="Стоимость" Binding="{Binding Cost, StringFormat=C}" Width="120"/>
+                            <DataGridTextColumn Header="Стоимость(руб)" Binding="{Binding Cost, StringFormat=C}" Width="120"/>
                             <DataGridTextColumn Header="Продолжительность (мин)" Binding="{Binding Duration}" Width="150"/>
                             <DataGridTextColumn Header="Кабинет" Binding="{Binding Cabinet}" Width="100"/>
                         </DataGrid.Columns>

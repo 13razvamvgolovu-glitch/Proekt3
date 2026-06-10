@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proekt3"
         mc:Ignorable="d"
-        Title="PatientEditDialog" Height="450" Width="800"
+        Title="PatientEditDialog" Height="400" Width="350"
         WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize">
     <Grid Margin="15">
@@ -33,27 +33,27 @@
 
         <!-- Поле ФИО -->
         <StackPanel Grid.Row="1" Margin="0,5">
-            <TextBlock Text="ФИО пациента*" FontWeight="Bold"/>
+            <TextBlock Text="ФИО пациента" FontWeight="Bold"/>
             <TextBox x:Name="txtFullName" Style="{StaticResource ValidationErrorStyle}"
                      TextChanged="ValidateForm" Height="25"/>
         </StackPanel>
 
         <!-- Поле даты рождения -->
         <StackPanel Grid.Row="2" Margin="0,5">
-            <TextBlock Text="Дата рождения*" FontWeight="Bold"/>
+            <TextBlock Text="Дата рождения" FontWeight="Bold"/>
             <DatePicker x:Name="dpBirthDate" SelectedDateChanged="ValidateForm" Height="25"/>
         </StackPanel>
 
         <!-- Поле телефона -->
         <StackPanel Grid.Row="3" Margin="0,5">
-            <TextBlock Text="Телефон*" FontWeight="Bold"/>
+            <TextBlock Text="Телефон" FontWeight="Bold"/>
             <TextBox x:Name="txtPhone" Style="{StaticResource ValidationErrorStyle}"
                      TextChanged="ValidateForm" Height="25"/>
         </StackPanel>
 
         <!-- Поле СНИЛС -->
         <StackPanel Grid.Row="4" Margin="0,5">
-            <TextBlock Text="СНИЛС* (формат: XXX-XXX-XXX XX)" FontWeight="Bold"/>
+            <TextBlock Text="СНИЛС (формат: XXX-XXX-XXX XX)" FontWeight="Bold"/>
             <TextBox x:Name="txtSnils" Style="{StaticResource ValidationErrorStyle}"
                      TextChanged="ValidateForm" Height="25"/>
         </StackPanel>

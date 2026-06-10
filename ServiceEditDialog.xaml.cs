@@ -16,9 +16,7 @@ using System.Windows.Shapes;
 
 namespace Proekt3
 {
-    /// <summary>
-    /// Логика взаимодействия для ServiceEditDialog.xaml
-    /// </summary>
+    // Логика взаимодействия для ServiceEditDialog.xaml
     public partial class ServiceEditDialog : Window
     {
         private DentalService editingService;
@@ -35,10 +33,7 @@ namespace Proekt3
             LoadServiceData();           // Загружаем данные в поля формы
         }
 
-        /// <summary>
-        /// Загрузка данных услуги в поля формы
-        /// </summary>
-        private void LoadServiceData()
+        private void LoadServiceData() // Загрузка данных услуги в поля формы
         {
             txtName.Text = editingService.Name;
             txtCost.Text = editingService.Cost.ToString();
@@ -46,10 +41,7 @@ namespace Proekt3
             txtCabinet.Text = editingService.Cabinet;
         }
 
-        /// <summary>
-        /// Получение новой услуги из данных формы (для режима добавления)
-        /// </summary>
-        public DentalService GetService()
+        public DentalService GetService()// Получение новой услуги из данных формы (для режима добавления)
         {
             return new DentalService
             {
@@ -59,22 +51,14 @@ namespace Proekt3
                 Cabinet = txtCabinet.Text.Trim()
             };
         }
-
-        /// <summary>
-        /// Обновление существующей услуги данными из формы (для режима редактирования)
-        /// </summary>
-        public void UpdateService(DentalService service)
+        public void UpdateService(DentalService service) // Обновление существующей услуги данными из формы (для режима редактирования)
         {
             service.Name = txtName.Text.Trim();
             service.Cost = decimal.TryParse(txtCost.Text, out decimal cost) ? cost : 0;
             service.Duration = int.TryParse(txtDuration.Text, out int duration) ? duration : 0;
             service.Cabinet = txtCabinet.Text.Trim();
         }
-
-        /// <summary>
-        /// Валидация всех полей формы
-        /// </summary>
-        private void ValidateForm(object sender, RoutedEventArgs e)
+        private void ValidateForm(object sender, RoutedEventArgs e) // Валидация всех полей формы
         {
             string error = "";
             bool isValid = true;
@@ -126,11 +110,7 @@ namespace Proekt3
             txtError.Text = error;
             btnSave.IsEnabled = isValid;
         }
-
-        /// <summary>
-        /// Обработчик кнопки "Сохранить"
-        /// </summary>
-        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        private void BtnSave_Click(object sender, RoutedEventArgs e) // Обработчик кнопки "Сохранить"
         {
             // Если это режим редактирования, обновляем данные
             if (isEditMode && editingService != null)
@@ -141,11 +121,7 @@ namespace Proekt3
             DialogResult = true;
             Close();
         }
-
-        /// <summary>
-        /// Обработчик кнопки "Отмена"
-        /// </summary>
-        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        private void BtnCancel_Click(object sender, RoutedEventArgs e) // Обработчик кнопки "Отмена"
         {
             DialogResult = false;
             Close();

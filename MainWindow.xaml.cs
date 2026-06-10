@@ -13,9 +13,7 @@ using System.Windows.Shapes;
 
 namespace Proekt3
 {
-    /// <summary>
     /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         // Коллекции для хранения данных
@@ -27,7 +25,7 @@ namespace Proekt3
         private int nextServiceId = 1;
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent(); // Конструктор
             InitializeData(); // Заполнение тестовыми данными
         }
         private void InitializeData()

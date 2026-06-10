@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proekt3"
         mc:Ignorable="d"
-        Title="ServiceEditDialog" Height="450" Width="800"
+        Title="ServiceEditDialog" Height="400" Width="350"
         WindowStartupLocation="CenterOwner" 
         ResizeMode="NoResize">
     <Grid Margin="15">
@@ -17,34 +17,34 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
+        <!-- Область для отображения ошибок валидации -->
         <TextBlock x:Name="txtError" Foreground="{StaticResource ErrorColor}" 
                    HorizontalAlignment="Center" FontSize="12" Margin="0,0,0,10"/>
-
+        <!-- Область для ввода названия услуги -->
         <StackPanel Grid.Row="1" Margin="0,5">
-            <TextBlock Text="Название услуги*" FontWeight="Bold"/>
+            <TextBlock Text="Название услуги" FontWeight="Bold"/>
             <TextBox x:Name="txtName" Style="{StaticResource ValidationErrorStyle}"
                      TextChanged="ValidateForm"/>
         </StackPanel>
-
+        <!-- Область для ввода стоимости услуги -->
         <StackPanel Grid.Row="2" Margin="0,5">
-            <TextBlock Text="Стоимость* (руб)" FontWeight="Bold"/>
+            <TextBlock Text="Стоимость (руб)" FontWeight="Bold"/>
             <TextBox x:Name="txtCost" Style="{StaticResource ValidationErrorStyle}"
                      TextChanged="ValidateForm"/>
         </StackPanel>
-
+        <!-- Область для ввода длительности услуги -->
         <StackPanel Grid.Row="3" Margin="0,5">
-            <TextBlock Text="Продолжительность* (минут)" FontWeight="Bold"/>
+            <TextBlock Text="Продолжительность (минут)" FontWeight="Bold"/>
             <TextBox x:Name="txtDuration" Style="{StaticResource ValidationErrorStyle}"
                      TextChanged="ValidateForm"/>
         </StackPanel>
-
+        <!-- Область для ввода кабинета -->
         <StackPanel Grid.Row="4" Margin="0,5">
-            <TextBlock Text="Кабинет*" FontWeight="Bold"/>
+            <TextBlock Text="Кабинет" FontWeight="Bold"/>
             <TextBox x:Name="txtCabinet" Style="{StaticResource ValidationErrorStyle}"
                      TextChanged="ValidateForm"/>
         </StackPanel>
-
+        <!-- Кнопки сохранить и отмена -->
         <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
             <Button x:Name="btnSave" Content="Сохранить" Style="{StaticResource ButtonStyle}" 
                     Width="100" Click="BtnSave_Click" IsEnabled="False"/>
