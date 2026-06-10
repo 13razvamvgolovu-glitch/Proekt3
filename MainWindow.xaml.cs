@@ -14,11 +14,14 @@ using System.Windows.Shapes;
 namespace Proekt3
 {
     // Interaction logic for MainWindow.xaml
+
+    // Главное окно приложения стоматологической клиники
+    // Содержит таблицы пациентов и услуг, а также все операции с ними
     public partial class MainWindow : Window
     {
         // Коллекции для хранения данных
-        private ObservableCollection<Patient> patients;      // Список пациентов
-        private ObservableCollection<DentalService> services; // Список услуг
+        private ObservableCollection<Patient> patients; // Коллекция пациентов с автоматическим обновлением интерфейса
+        private ObservableCollection<DentalService> services; // Коллекция услуг с автоматическим обновлением интерфейса
 
         // Генераторы ID
         private int nextPatientId = 1;
@@ -73,55 +76,55 @@ namespace Proekt3
         {
             try
             {
-                var dialog = new PatientEditDialog();
+                var dialog = new PatientEditDialog(); // Создаём диалоговое окно
                 if (dialog.ShowDialog() == true)
                 {
-                    var patient = dialog.GetPatient();
+                    var patient = dialog.GetPatient(); 
                     patient.Id = nextPatientId++;
                     patient.LastVisit = DateTime.Today;
                     patient.Status = "В лечении";
-                    patients.Add(patient);
+                    patients.Add(patient); // Добавляем в коллекцию
                 }
             }
-            catch (Exception ex)
+            catch (Exception ex) // предупреждение, если найдена ошибка
             {
                 MessageBox.Show("Ошибка при добавлении пациента: " + ex.Message, "Ошибка",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        // Редактирование выбранного пациента
+        // Обработчик кнопки "Редактировать" для пациентов
         private void BtnEditPatient_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 var selected = dgPatients.SelectedItem as Patient;
-                if (selected == null)
+                if (selected == null) // проверка на то выбрали ли мы пациента
                 {
                     MessageBox.Show("Выберите пациента для редактирования", "Информация",
                         MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
 
-                var dialog = new PatientEditDialog(selected);
+                var dialog = new PatientEditDialog(selected); // Создаём диалог
                 if (dialog.ShowDialog() == true)
                 {
                     dialog.UpdatePatient(selected);
                     dgPatients.Items.Refresh();
                 }
             }
-            catch (Exception ex)
+            catch (Exception ex) // предупреждение, если найдена ошибка
             {
                 MessageBox.Show("Ошибка при редактировании: " + ex.Message, "Ошибка",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        // Удаление выбранного пациента
+        // Обработчик кнопки "Удалить" для пациентов
         private void BtnDeletePatient_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 var selected = dgPatients.SelectedItem as Patient;
-                if (selected == null)
+                if (selected == null) // проверка на то выбрали ли мы пациента
                 {
                     MessageBox.Show("Выберите пациента для удаления", "Информация",
                         MessageBoxButton.OK, MessageBoxImage.Information);
@@ -131,19 +134,19 @@ namespace Proekt3
                 var result = MessageBox.Show($"Удалить запись о пациенте \"{selected.FullName}\"?",
                     "Подтверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
-                if (result == MessageBoxResult.Yes)
+                if (result == MessageBoxResult.Yes) // Если пользователь подтвердил - удаляем
                 {
-                    patients.Remove(selected);
+                    patients.Remove(selected); // Удаление из коллекции
                 }
             }
-            catch (Exception ex)
+            catch (Exception ex) // предупреждение, если найдена ошибка
             {
                 MessageBox.Show("Ошибка при удалении: " + ex.Message, "Ошибка",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
-        // Обновление таблицы пациентов
+        // Обработчик кнопки "Обновить" для пациентов
         private void BtnRefreshPatients_Click(object sender, RoutedEventArgs e)
         {
             for (int i = 0; i < patients.Count; i++)
@@ -164,7 +167,13 @@ namespace Proekt3
         {
             BtnEditPatient_Click(sender, null);
         }
-        // Добавление новой услуги
+
+
+
+
+
+
+        // Обработчик кнопки "Добавить" для услуг
         private void BtnAddService_Click(object sender, RoutedEventArgs e) // Операции с услугами
         {
             try
@@ -177,7 +186,7 @@ namespace Proekt3
                     services.Add(service);
                 }
             }
-            catch (Exception ex)
+            catch (Exception ex) // предупреждение, если найдена ошибка
             {
                 MessageBox.Show("Ошибка при добавлении услуги: " + ex.Message, "Ошибка",
                     MessageBoxButton.OK, MessageBoxImage.Error);
@@ -203,19 +212,19 @@ namespace Proekt3
                     dgServices.Items.Refresh();
                 }
             }
-            catch (Exception ex)
+            catch (Exception ex) // предупреждение, если найдена ошибка
             {
                 MessageBox.Show("Ошибка при редактировании: " + ex.Message, "Ошибка",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        // Удаление выбранной услуги
+        // Обработчик кнопки "Удалить" для услуг
         private void BtnDeleteService_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 var selected = dgServices.SelectedItem as DentalService;
-                if (selected == null)
+                if (selected == null) // проверка на то выбрали ли мы услугу
                 {
                     MessageBox.Show("Выберите услугу для удаления", "Информация",
                         MessageBoxButton.OK, MessageBoxImage.Information);
@@ -225,18 +234,18 @@ namespace Proekt3
                 var result = MessageBox.Show($"Удалить услугу \"{selected.Name}\"?",
                     "Подтверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
-                if (result == MessageBoxResult.Yes)
+                if (result == MessageBoxResult.Yes) // удаление услуги
                 {
                     services.Remove(selected);
                 }
             }
-            catch (Exception ex)
+            catch (Exception ex) // предупреждение, если найдена ошибка
             {
                 MessageBox.Show("Ошибка при удалении: " + ex.Message, "Ошибка",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        // Обновление таблицы услуг
+        // Обработчик кнопки "Обновить" для услуг
         private void BtnRefreshServices_Click(object sender, RoutedEventArgs e)
         {
             for (int i = 0; i < services.Count; i++)
