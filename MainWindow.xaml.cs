@@ -159,6 +159,15 @@ namespace Proekt3
         /// </summary>
         private void BtnRefreshPatients_Click(object sender, RoutedEventArgs e)
         {
+            for (int i = 0; i < patients.Count; i++)
+            {
+                var patient = patients[i];
+                if (patient != null)
+                {
+                    patient.Id = i + 1;
+                }
+            }
+
             dgPatients.Items.Refresh();
         }
 
@@ -258,6 +267,15 @@ namespace Proekt3
         /// </summary>
         private void BtnRefreshServices_Click(object sender, RoutedEventArgs e)
         {
+            for (int i = 0; i < services.Count; i++)
+            {
+                var service = services[i];
+                if (service != null)
+                {
+                    service.Id = i + 1;
+                }
+            }
+
             dgServices.Items.Refresh();
         }
 
