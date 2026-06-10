@@ -13,7 +13,7 @@ using System.Windows.Shapes;
 
 namespace Proekt3
 {
-    /// Interaction logic for MainWindow.xaml
+    // Interaction logic for MainWindow.xaml
     public partial class MainWindow : Window
     {
         // Коллекции для хранения данных
@@ -36,7 +36,7 @@ namespace Proekt3
                 new Patient
                 {
                     Id = nextPatientId++,
-                    FullName = "Иванов Иван Иванович",
+                    FullName = "Оксенюк Максим Сергеевич",
                     BirthDate = new DateTime(1985, 5, 15),
                     Phone = "89123456789",
                     Snils = "123-456-789 01",
@@ -46,7 +46,7 @@ namespace Proekt3
                 new Patient
                 {
                     Id = nextPatientId++,
-                    FullName = "Петрова Анна Сергеевна",
+                    FullName = "Кеда Диана Александровна",
                     BirthDate = new DateTime(1990, 8, 20),
                     Phone = "79201234567",
                     Snils = "987-654-321 99",
@@ -68,13 +68,8 @@ namespace Proekt3
             dgPatients.ItemsSource = patients;
             dgServices.ItemsSource = services;
         }
-
-        // ==================== ОПЕРАЦИИ С ПАЦИЕНТАМИ ====================
-
-        /// <summary>
-        /// Добавление нового пациента
-        /// </summary>
-        private void BtnAddPatient_Click(object sender, RoutedEventArgs e)
+        // Добавление нового пациента
+        private void BtnAddPatient_Click(object sender, RoutedEventArgs e) // Операции над пациентами
         {
             try
             {
@@ -94,10 +89,7 @@ namespace Proekt3
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
-        /// <summary>
-        /// Редактирование выбранного пациента
-        /// </summary>
+        // Редактирование выбранного пациента
         private void BtnEditPatient_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -123,10 +115,7 @@ namespace Proekt3
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
-        /// <summary>
-        /// Удаление выбранного пациента
-        /// </summary>
+        // Удаление выбранного пациента
         private void BtnDeletePatient_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -154,9 +143,7 @@ namespace Proekt3
             }
         }
 
-        /// <summary>
-        /// Обновление таблицы пациентов
-        /// </summary>
+        // Обновление таблицы пациентов
         private void BtnRefreshPatients_Click(object sender, RoutedEventArgs e)
         {
             for (int i = 0; i < patients.Count; i++)
@@ -169,22 +156,16 @@ namespace Proekt3
             }
 
             dgPatients.Items.Refresh();
+
         }
 
-        /// <summary>
-        /// Обработчик двойного клика по строке пациента
-        /// </summary>
+        // Обработчик двойного клика по строке пациента
         private void DgPatients_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             BtnEditPatient_Click(sender, null);
         }
-
-        // ==================== ОПЕРАЦИИ С УСЛУГАМИ ====================
-
-        /// <summary>
-        /// Добавление новой услуги
-        /// </summary>
-        private void BtnAddService_Click(object sender, RoutedEventArgs e)
+        // Добавление новой услуги
+        private void BtnAddService_Click(object sender, RoutedEventArgs e) // Операции с услугами
         {
             try
             {
@@ -202,10 +183,7 @@ namespace Proekt3
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
-        /// <summary>
-        /// Редактирование выбранной услуги
-        /// </summary>
+        // Редактирование выбранной услуги
         private void BtnEditService_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -231,10 +209,7 @@ namespace Proekt3
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
-        /// <summary>
-        /// Удаление выбранной услуги
-        /// </summary>
+        // Удаление выбранной услуги
         private void BtnDeleteService_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -261,10 +236,7 @@ namespace Proekt3
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
-        /// <summary>
-        /// Обновление таблицы услуг
-        /// </summary>
+        // Обновление таблицы услуг
         private void BtnRefreshServices_Click(object sender, RoutedEventArgs e)
         {
             for (int i = 0; i < services.Count; i++)
@@ -277,11 +249,9 @@ namespace Proekt3
             }
 
             dgServices.Items.Refresh();
-        }
 
-        /// <summary>
-        /// Обработчик двойного клика по строке услуги
-        /// </summary>
+        }
+        // Обработчик двойного клика по строке услуги
         private void DgServices_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             BtnEditService_Click(sender, null);
