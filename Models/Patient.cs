@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Proekt3.Models
 {
-    public class Patient
+    public class Patient // класс пациенты
     {
-        public int Id { get; set; }                      // аайди пациента
+        public int Id { get; set; }                      // айди пациента
         public string FullName { get; set; }             // ФИО пациента
         public DateTime BirthDate { get; set; }          // Дата рождения
         public string Phone { get; set; }                // Номер телефона

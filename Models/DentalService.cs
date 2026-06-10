@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proekt3.Models
 {
-    public class DentalService
+    public class DentalService // класс услуги
     {
         public int Id { get; set; }          // айди услуги
         public string Name { get; set; }     // Название услуги
